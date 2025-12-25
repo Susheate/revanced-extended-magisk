@@ -28,4 +28,4 @@ Get the [latest CI release](https://github.com/susheatee/revanced-extended-magis
 
 [inotia00](https://github.com/inotia00) for [revanced-extended patches](https://github.com/inotia00/revanced-patches).
 
-[NoName-exe](https://github.com/NoName-exe) for making the [revanced-extended repo](https://github.com/NoName-exe/revanced-extended)
+[NoName-exe](https://github.com/NoName-exe) for making the [revanced-extended repo](https://github.com/NoName-exe/revanced-extended).
