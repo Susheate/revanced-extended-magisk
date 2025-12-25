@@ -3,7 +3,7 @@
 
 Get the [latest CI release](https://github.com/susheatee/revanced-extended-magisk/releases/latest).
 
-### A fork of [NoName-exe's Revanced Extended repo](https://github.com/NoName-exe/revanced-extended) made to fix mount not being kept across reboots.
+### A fork of [NoName-exe's Revanced Extended repo](https://github.com/NoName-exe/revanced-extended) made to fix mounts not being kept across reboots and various other issues.
 
 ## Features
  * Keep mount across reboots.
