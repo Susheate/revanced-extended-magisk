@@ -9,7 +9,6 @@ parallel-jobs = 1
 # you can use rvmm-config-gen to generate a config
 
 [YouTube]
-arch = "both"
 build-mode = "module"                                                   
 excluded-patches = ""                                                 
 included-patches = "" 
@@ -22,7 +21,7 @@ module-prop-name = "yt-rvx"
 [Music]
 arch = "both"
 build-mode = "module"
-app-name = "YouTube Music"
+app-name = "YouTube-Music"
 excluded-patches = ""
 included-patches = ""
 patcher-args = " -e 'GmsCore support' -OpackageNameYouTubeMusic='ytm.rvx.noname.exe' "
