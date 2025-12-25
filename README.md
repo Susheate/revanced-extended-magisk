@@ -1,5 +1,5 @@
 # ReVanced Extended
-[![CI](https://github.com/susheatee/revanced-extended-magisk/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/Susheate/revanced-extended-magisk/actions/workflows/ci.yml)
+[![CI](https://github.com/Susheate/revanced-extended-magisk/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/Susheate/revanced-extended-magisk/actions/workflows/ci.yml)
 
 Get the [latest CI release](https://github.com/susheatee/revanced-extended-magisk/releases/latest).
 
