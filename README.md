@@ -7,7 +7,7 @@ Get the [latest CI release](https://github.com/susheatee/revanced-extended-magis
 
 ## Features
  * Keep mounts across reboots
- * Build Magisk modules for Youtube Revanced Extended and Youtube Music Revanced Extended
+ * Builds Magisk modules for Youtube Revanced Extended and Youtube Music Revanced Extended
  * Updated with the latest versions of patches
  * Cleans APKs from unneeded libs to make them smaller
  * Fully open-source, every binary or APK is compiled without human intervention
