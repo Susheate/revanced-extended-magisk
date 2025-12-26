@@ -1,6 +1,6 @@
 enable-magisk-update = true   # set this to false if you do not want to receive updates for the module in magisk app
 patches-source = "inotia00/revanced-patches"
-rv-brand = "ReVanced eXtended"
+rv-brand = "ReVanced Extended"
 parallel-jobs = 1
 
 # add 'enabled = false' for not patching a specific app or remove it from the config
@@ -19,7 +19,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube/"
 module-prop-name = "yt-rvx"
 
 [Music]
-arch = "both"
+#arch = "both"
 build-mode = "module"
 app-name = "YouTube-Music"
 excluded-patches = ""
