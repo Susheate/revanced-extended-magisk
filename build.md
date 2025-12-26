@@ -1,3 +1,5 @@
+Music (arm64-v8a): 8.30.54  
+Music (arm-v7a): 8.30.54  
 YouTube: 20.05.46  
 Use [zygisk-detach](https://github.com/j-hc/zygisk-detach) to prevent Play Store from updating YouTube and YouTube Music.  
 
