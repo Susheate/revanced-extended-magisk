@@ -13,12 +13,11 @@ build-mode = "module"
 version = "auto"
 patches-source = "anddea/revanced-patches"
 cli-source = "j-hc/revanced-cli"
-#rv-brand = "ReVanced Extended anddea"
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 module-prop-name = "yt-rvx-anddea"
 arch = "all"
-riplib = true
-
 
 [YouTube-Music-Extended-anddea]
 app-name = "YT-Music RVX anddea"
@@ -27,8 +26,9 @@ build-mode = "module"
 version = "auto"
 patches-source = "anddea/revanced-patches"
 cli-source = "j-hc/revanced-cli"
-#rv-brand = "ReVanced Extended anddea"
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-rvx-anddea"
 arch = "both"
 riplib = true
@@ -41,11 +41,11 @@ build-mode = "module"
 version = "auto"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
-#rv-brand = "Morphe"
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 module-prop-name = "yt-morphe"
 arch = "all"
-riplib = true
 
 
 [YouTube-Music-Morphe]
@@ -55,11 +55,11 @@ build-mode = "module"
 version = "auto"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
-#rv-brand = "Morphe"
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-morphe"
 arch = "both"
-riplib = true
 
 
 [Reddit-Morphe]
@@ -69,8 +69,8 @@ build-mode = "module"
 version = "auto"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
-#rv-brand = "Morphe"
-#apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.reddit.frontpage"
+uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 module-prop-name = "reddit-morphe"
 arch = "all"
-riplib = true
