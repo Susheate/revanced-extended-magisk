@@ -1,6 +1,6 @@
 {
-  "version": "v2024.17.0 (patches 1.2.0.mpp)",
-  "versionCode": 7,
-  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/7/reddit-morphe-morphe-magisk-v2024.17.0-all.zip",
+  "version": "v2026.04.0 (patches 1.14.0.mpp)",
+  "versionCode": 17,
+  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/17/Reddit Morphe-module-v2026.04.0-all.zip",
   "changelog": "https://raw.githubusercontent.com/Susheate/rvx-morphe-module-builder/update/build.md"
 }

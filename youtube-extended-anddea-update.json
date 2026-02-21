@@ -1,6 +1,6 @@
 {
-  "version": "v20.05.46 (patches 3.15.0.rvp)",
-  "versionCode": 7,
-  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/7/yt-rvx-anddea-revanced-extended-anddea-magisk-v20.05.46-all.zip",
+  "version": "v20.05.46 (patches 3.16.0.rvp)",
+  "versionCode": 17,
+  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/17/YT RVX anddea-module-v20.05.46-all.zip",
   "changelog": "https://raw.githubusercontent.com/Susheate/rvx-morphe-module-builder/update/build.md"
 }
