@@ -652,6 +652,12 @@ build_rv() {
 
 		module_config "$base_template" "$pkg_name" "$version" "$arch"
 
+		if [[ ! $app_name = $table_name ]]; then
+			module_name="${app_name} ${rv_brand}"
+		else
+			module_name="${app_name}"
+		fi
+
 		local patches_ver="${patches_jar##*-}"
 		module_prop \
 			"${args[module_prop_name]}" \
@@ -670,12 +676,6 @@ build_rv() {
 		popd >/dev/null || :
 		pr "Built ${table} (root): '${BUILD_DIR}/${module_output}'"
 	done
-
-	if [[ ! $app_name = $table_name ]]; then
-		module_name="${app_name} ${rv_brand}"
-	else
-		module_name="${app_name}"
-	fi
 }
 
 list_args() { tr -d '\t\r' <<<"$1" | tr -s ' ' | sed 's/" "/"\n"/g' | sed 's/\([^"]\)"\([^"]\)/\1'\''\2/g' | grep -v '^$' || :; }
