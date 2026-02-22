@@ -4,7 +4,7 @@
 
 ## Features
 
-**The modules install Morphe/RVX patched apps in order to make them easy to manage.**
+**Morph/RVX patching, made easy**
 
 ### Modules features
 * **Receive updates from your root manager app :** no need to repatch your apps, updates are seamless.
