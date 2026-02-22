@@ -674,6 +674,7 @@ build_rv() {
 		module_name="${app_name} ${rv_brand}"
 	else
 		module_name="${app_name}"
+	fi
 }
 
 list_args() { tr -d '\t\r' <<<"$1" | tr -s ' ' | sed 's/" "/"\n"/g' | sed 's/\([^"]\)"\([^"]\)/\1'\''\2/g' | grep -v '^$' || :; }
