@@ -1,6 +1,6 @@
 {
   "version": "v8.30.54 (patches 3.16.0.rvp)",
-  "versionCode": 20,
-  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/20/YT-Music-RVX-anddea-module-v8.30.54-arm-v7a.zip",
+  "versionCode": 21,
+  "zipUrl": "https://github.com/Susheate/rvx-morphe-module-builder/releases/download/21/YT-Music-RVX-anddea-module-v8.30.54-arm-v7a.zip",
   "changelog": "https://raw.githubusercontent.com/Susheate/rvx-morphe-module-builder/update/build.md"
 }
