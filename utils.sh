@@ -6,6 +6,7 @@ TEMP_DIR="temp"
 BIN_DIR="bin"
 BUILD_DIR="build"
 module_name=""
+module_desc=""
 
 if [ "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; else GH_HEADER=; fi
 NEXT_VER_CODE=${NEXT_VER_CODE:-$(date +'%Y%m%d')}
@@ -654,16 +655,18 @@ build_rv() {
 
 		if [[ ! $app_name = $table_name ]]; then
 			module_name="${app_name} ${rv_brand}"
+			module_desc="${app_name} ${rv_brand} module"
 		else
 			module_name="${app_name}"
+			module_desc="${app_name} module"
 		fi
 
 		local patches_ver="${patches_jar##*-}"
 		module_prop \
 			"${args[module_prop_name]}" \
-			"${app_name} ${rv_brand}" \
+			"${module_name}" \
 			"${version} (patches ${patches_ver})" \
-			"${app_name} ${rv_brand} module" \
+			"${module_desc} module" \
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
 
@@ -695,7 +698,7 @@ MODULE_ARCH=$ma" >"$1/config"
 
 module_prop() {
 	echo "id=${1}
-name=${module_name}
+name=${2}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=Susheatee, j-hc
