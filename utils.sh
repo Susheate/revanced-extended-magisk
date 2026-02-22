@@ -669,6 +669,11 @@ build_rv() {
 		popd >/dev/null || :
 		pr "Built ${table} (root): '${BUILD_DIR}/${module_output}'"
 	done
+
+	if [[ ! $app_name = $table_name ]]; then
+		module_name="${app_name} ${rv_brand}"
+	else
+		module_name="${app_name}"
 }
 
 list_args() { tr -d '\t\r' <<<"$1" | tr -s ' ' | sed 's/" "/"\n"/g' | sed 's/\([^"]\)"\([^"]\)/\1'\''\2/g' | grep -v '^$' || :; }
@@ -685,9 +690,10 @@ module_config() {
 PKG_VER=$3
 MODULE_ARCH=$ma" >"$1/config"
 }
+
 module_prop() {
 	echo "id=${1}
-name=${app_name} ${rv_brand}
+name=${module_name}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=Susheatee, j-hc
