@@ -499,8 +499,10 @@ build_rv() {
 	local version="" pkg_name=""
 	local mode_arg=${args[build_mode]} version_mode=${args[version]}
 	local app_name=${args[app_name]}
-	local app_name_l=${app_name,,}
-	app_name_l=${app_name_l// /-}
+	local rv_brand=${args[rv_brand]}
+	local release_name=${args[release_name]}
+	local release_name_l=${release_name,,}
+	release_name_l=${release_name_l// /-}
 	local table=${args[table]}
 	local dl_from=${args[dl_from]}
 	local arch=${args[arch]}
@@ -603,11 +605,7 @@ build_rv() {
 	for build_mode in "${build_mode_arr[@]}"; do
 		patcher_args=("${p_patcher_args[@]}")
 		pr "Building '${table}' in '$build_mode' mode"
-		if [ -n "$microg_patch" ]; then
-			patched_apk="${TEMP_DIR}/${app_name}-${version_f}-${arch_f}-${build_mode}.apk"
-		else
-			patched_apk="${TEMP_DIR}/${app_name}-${version_f}-${arch_f}.apk"
-		fi
+		patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
 		if [ -n "$microg_patch" ]; then
 			if [ "$build_mode" = apk ]; then
 				patcher_args+=("-e \"${microg_patch}\"")
@@ -641,7 +639,7 @@ build_rv() {
 		fi
 		rm "$stock_apk_to_patch"
 		if [ "$build_mode" = apk ]; then
-			local apk_output="${BUILD_DIR}/${app_name}-v${version_f}-${arch_f}.apk"
+			local apk_output="${BUILD_DIR}/${app_name}-${rv_brand}-v${version_f}-${arch_f}.apk"
 			mv -f "$patched_apk" "$apk_output"
 			pr "Built ${table} (non-root): '${apk_output}'"
 			continue
@@ -662,7 +660,7 @@ build_rv() {
 			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 			"$base_template"
 
-		local module_output="${app_name}-module-v${version_f}-${arch_f}.zip"
+		local module_output="${release_name}-module-v${version_f}-${arch_f}.zip"
 		pr "Packing module ${table}"
 		cp -f "$patched_apk" "${base_template}/base.apk"
 		if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
@@ -689,7 +687,7 @@ MODULE_ARCH=$ma" >"$1/config"
 }
 module_prop() {
 	echo "id=${1}
-name=${app_name}
+name=${app_name}-${rv_brand}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=Susheatee, j-hc
