@@ -20,7 +20,12 @@
 
  ## Notes
 * Use [zygisk-detach](https://github.com/j-hc/zygisk-detach) to prevent Play Store from updating the patched apps.
-* This is a fork of [j-hc](https://github.com/j-hc)'s [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module), it currently offers clearer releases and modules names, code cleaning and changes, and different patches/patched apps.
+* This is a fork of [j-hc](https://github.com/j-hc)'s [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module)
+* It currently offers :
+ * Clearer releases' and modules' names
+ * Code cleaning and changes
+ * Different patches/patched apps
+ * [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/CONFIG.md)
 
 
 ## Credits
