@@ -26,6 +26,8 @@
 ## Credits
 [j-hc](https://github.com/j-hc) for the [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module) and [zygisk-detach](https://github.com/j-hc/zygisk-detach)
 
-[The ReVanced team](https://github.com/revanced)
+[The MorpheApp team](https://github.com/Morphe) for their [Morphe patches](https://github.com/MorpheApp/morphe-patches)
 
-[anddea](https://github.com/anddea) for their [revanced-extended patches](https://github.com/anddea/revanced-patches)
+[anddea](https://github.com/anddea) for their [Revanced Extended patches](https://github.com/anddea/revanced-patches)
+
+[The ReVanced team](https://github.com/revanced)
