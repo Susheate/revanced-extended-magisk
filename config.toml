@@ -2,6 +2,7 @@ enable-magisk-update = true # set this to false if you do not want to receive up
 parallel-jobs = 1
 
 
+#Stable
 [YouTube-Extended-anddea]
 release-name = "YT-RVX-anddea"
 app-name="YouTube"
@@ -16,7 +17,6 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 module-prop-name = "yt-rvx-anddea"
 arch = "all"
-
 
 [YouTube-Music-Extended-anddea]
 release-name = "YT-Music-RVX-anddea"
@@ -33,7 +33,6 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.a
 module-prop-name = "ytm-rvx-anddea"
 arch = "both"
 
-
 [YouTube-Morphe]
 release-name = "YT-Morphe"
 app-name="YouTube"
@@ -49,7 +48,6 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.y
 module-prop-name = "yt-morphe"
 arch = "all"
 
-
 [YouTube-Music-Morphe]
 release-name = "YT-Music-Morphe"
 app-name="YouTube Music"
@@ -64,7 +62,6 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-morphe"
 arch = "both"
-
 
 [Reddit-Morphe]
 release-name = "Reddit-Morphe"
