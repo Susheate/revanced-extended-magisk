@@ -3,7 +3,8 @@ parallel-jobs = 1
 
 
 [YouTube-Extended-anddea]
-app-name = "YT RVX anddea"
+release-name = "YT-RVX-anddea"
+app-name="YouTube"
 rv-brand = "ReVanced Extended anddea"
 enabled = true
 build-mode = "module"
@@ -18,7 +19,8 @@ arch = "all"
 
 
 [YouTube-Music-Extended-anddea]
-app-name = "YT-Music RVX anddea"
+release-name = "YT-Music-RVX-anddea"
+app-name="YouTube Music"
 rv-brand = "ReVanced Extended anddea"
 enabled = true
 build-mode = "module"
@@ -33,7 +35,8 @@ arch = "both"
 
 
 [YouTube-Morphe]
-app-name = "YT Morphe"
+release-name = "YT-Morphe"
+app-name="YouTube"
 rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
@@ -48,7 +51,8 @@ arch = "all"
 
 
 [YouTube-Music-Morphe]
-app-name = "YT-Music Morphe"
+release-name = "YT-Music-Morphe"
+app-name="YouTube Music"
 rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
@@ -63,7 +67,8 @@ arch = "both"
 
 
 [Reddit-Morphe]
-app-name = "Reddit Morphe"
+release-name = "Reddit-Morphe"
+app-name="Reddit"
 rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
