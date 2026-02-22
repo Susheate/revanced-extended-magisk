@@ -1,13 +1,10 @@
 enable-magisk-update = true # set this to false if you do not want to receive updates for the module in magisk app
 parallel-jobs = 1
 
-# add 'enabled = false' for not patching a specific app or remove it from the config
-# see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
-
-# you can use rvmm-config-gen to generate a config
 
 [YouTube-Extended-anddea]
 app-name = "YT RVX anddea"
+rv-brand = "ReVanced Extended anddea"
 enabled = true
 build-mode = "module"
 version = "auto"
@@ -19,8 +16,10 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.y
 module-prop-name = "yt-rvx-anddea"
 arch = "all"
 
+
 [YouTube-Music-Extended-anddea]
 app-name = "YT-Music RVX anddea"
+rv-brand = "ReVanced Extended anddea"
 enabled = true
 build-mode = "module"
 version = "auto"
@@ -31,11 +30,11 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-rvx-anddea"
 arch = "both"
-riplib = true
 
 
 [YouTube-Morphe]
 app-name = "YT Morphe"
+rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
 version = "auto"
@@ -50,6 +49,7 @@ arch = "all"
 
 [YouTube-Music-Morphe]
 app-name = "YT-Music Morphe"
+rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
 version = "auto"
@@ -64,6 +64,7 @@ arch = "both"
 
 [Reddit-Morphe]
 app-name = "Reddit Morphe"
+rv-brand = "Morphe"
 enabled = true
 build-mode = "module"
 version = "auto"
