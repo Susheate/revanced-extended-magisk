@@ -687,7 +687,7 @@ MODULE_ARCH=$ma" >"$1/config"
 }
 module_prop() {
 	echo "id=${1}
-name=${app_name}-${rv_brand}
+name=${app_name} ${rv_brand}
 version=v${3}
 versionCode=${NEXT_VER_CODE}
 author=Susheatee, j-hc
