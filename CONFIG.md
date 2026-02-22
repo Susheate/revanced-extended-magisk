@@ -30,7 +30,7 @@ patches-version = "v2.160.0" # 'latest', 'dev', or a version number. default: "l
 cli-version = "v5.0.0"       # 'latest', 'dev', or a version number. default: "latest"
 
 [Some-App]
-app-name = "YouTube" # the module's names display the app-name and rv-brand values, the module's name would be YouTube ReVanced Extended 
+app-name = "YouTube" # the module's names displays the app-name and rv-brand values, the module's name would be YouTube ReVanced Extended 
 release-name = "SomeApp" # if set, release name becomes SomeApp instead of Some-App. default is same as table name, which is 'Some-App' here.
 enabled = true       # whether to build the app. default: true
 build-mode = "apk"   # 'both', 'apk' or 'module'. default: apk
