@@ -32,6 +32,7 @@ DEF_CLI_VER=$(toml_get "$main_config_t" cli-version) || DEF_CLI_VER="latest"
 DEF_PATCHES_SRC=$(toml_get "$main_config_t" patches-source) || DEF_PATCHES_SRC="ReVanced/revanced-patches"
 DEF_CLI_SRC=$(toml_get "$main_config_t" cli-source) || DEF_CLI_SRC="ReVanced/revanced-cli"
 DEF_RV_BRAND=$(toml_get "$main_config_t" rv-brand) || DEF_RV_BRAND="ReVanced"
+DEF_APP_NAME=$(toml_get "$main_config_t" app-name) || DEF_APP_NAME=""
 DEF_DPI_LIST=$(toml_get "$main_config_t" dpi) || DEF_DPI_LIST="nodpi anydpi"
 mkdir -p "$TEMP_DIR" "$BUILD_DIR"
 
@@ -84,6 +85,7 @@ for table_name in $(toml_get_table_names); do
 	app_args[cli]=$cli_jar
 	app_args[ptjar]=$patches_jar
 	app_args[rv_brand]=$(toml_get "$t" rv-brand) || app_args[rv_brand]=$DEF_RV_BRAND
+	app_args[app_name]=$(toml_get "$t" app-name) || app_args[app_name]=$DEF_APP_NAME
 
 	app_args[excluded_patches]=$(toml_get "$t" excluded-patches) || app_args[excluded_patches]=""
 	if [ -n "${app_args[excluded_patches]}" ] && [[ ${app_args[excluded_patches]} != *'"'* ]]; then abort "patch names inside excluded-patches must be quoted"; fi
@@ -91,7 +93,7 @@ for table_name in $(toml_get_table_names); do
 	if [ -n "${app_args[included_patches]}" ] && [[ ${app_args[included_patches]} != *'"'* ]]; then abort "patch names inside included-patches must be quoted"; fi
 	app_args[exclusive_patches]=$(toml_get "$t" exclusive-patches) && vtf "${app_args[exclusive_patches]}" "exclusive-patches" || app_args[exclusive_patches]=false
 	app_args[version]=$(toml_get "$t" version) || app_args[version]="auto"
-	app_args[app_name]=$(toml_get "$t" app-name) || app_args[app_name]=$table_name
+	app_args[release_name]=$(toml_get "$t" release-name) || app_args[release_name]=$table_name
 	app_args[patcher_args]=$(toml_get "$t" patcher-args) || app_args[patcher_args]=""
 	app_args[table]=$table_name
 	app_args[build_mode]=$(toml_get "$t" build-mode) && {
