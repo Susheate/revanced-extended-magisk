@@ -32,8 +32,8 @@ DEF_CLI_VER=$(toml_get "$main_config_t" cli-version) || DEF_CLI_VER="latest"
 DEF_PATCHES_SRC=$(toml_get "$main_config_t" patches-source) || DEF_PATCHES_SRC="ReVanced/revanced-patches"
 DEF_CLI_SRC=$(toml_get "$main_config_t" cli-source) || DEF_CLI_SRC="ReVanced/revanced-cli"
 DEF_RV_BRAND=$(toml_get "$main_config_t" rv-brand) || DEF_RV_BRAND="ReVanced"
-DEF_APP_NAME=$(toml_get "$main_config_t" app-name)
-DEF_REL_NAME=$(toml_get "$main_config_t" release-name)
+DEF_APP_NAME=$(toml_get "$main_config_t" app-name) || DEF_APP_NAME=""
+DEF_REL_NAME=$(toml_get "$main_config_t" release-name) || DEF_REL_NAME=""
 DEF_DPI_LIST=$(toml_get "$main_config_t" dpi) || DEF_DPI_LIST="nodpi anydpi"
 mkdir -p "$TEMP_DIR" "$BUILD_DIR"
 
