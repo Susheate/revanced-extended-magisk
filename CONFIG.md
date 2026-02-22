@@ -29,8 +29,8 @@ rv-brand = "ReVanced Extended" # rebrand from 'ReVanced' to something different.
 patches-version = "v2.160.0" # 'latest', 'dev', or a version number. default: "latest"
 cli-version = "v5.0.0"       # 'latest', 'dev', or a version number. default: "latest"
 
-[Some-App]
-app-name = "YouTube" # the module's names displays the app-name and rv-brand values, the module's name would be YouTube ReVanced Extended 
+[Some-App] # The table name, the builder will fallback to it if variables such as app-name or release-name weren't bound.
+app-name = "YouTube" # the modules' names display the app-name and rv-brand values, the module's name would be YouTube ReVanced Extended. If this variable isn't bound, the builder will fallback to the table name (Some-App).
 release-name = "SomeApp" # if set, release name becomes SomeApp instead of Some-App. default is same as table name, which is 'Some-App' here.
 enabled = true       # whether to build the app. default: true
 build-mode = "apk"   # 'both', 'apk' or 'module'. default: apk
