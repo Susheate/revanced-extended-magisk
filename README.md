@@ -4,11 +4,13 @@
 
 ## Features
 
+**The modules install Morphe/RVX patched apps in order to make them easy to manage.**
+
 ### Modules features
-* Keep mounts across reboots
-* Receive updates from your root manager app
+* **Receive updates from your root manager app :** no need to repatch your apps, updates are seamless.
+* **Keep mounts across reboots :** modules will keep being mounted after reboots
 * Should not trigger root detections
-* Support Apatch, Magisk and KernelSU
+* Support **Apatch**, **Magisk** and **KernelSU**
 
 ### Builder's features
 * Builds Magisk modules with RVX patches for YouTube and YouTube-Music
@@ -18,6 +20,7 @@
 
  ## Notes
 * Use [zygisk-detach](https://github.com/j-hc/zygisk-detach) to prevent Play Store from updating the patched apps.
+* This is a fork of [j-hc](https://github.com/j-hc)'s [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module), it currently offers clearer releases and modules names, code cleaning and changes, and different patches/patched apps.
 
 
 ## Credits
