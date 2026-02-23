@@ -4,7 +4,7 @@
 
 ## Features
 
-**Morph/RVX patching, made easy**
+**Morphe/RVX patching, made easy**
 
 ### Modules features
 * **Receive updates from your root manager app :** no need to repatch your apps, updates are seamless.
@@ -25,7 +25,7 @@
  * Clearer releases' and modules' names
  * Code cleaning and changes
  * Different patches/patched apps
- * [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/CONFIG.md)
+ * [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/docs.md)
 
 
 ## Credits
