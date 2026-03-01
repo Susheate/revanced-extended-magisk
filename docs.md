@@ -70,8 +70,8 @@ arch = "arm64-v8a"                                         # 'arm64-v8a', 'arm-v
 
 ### On Linux
 ```console
-$ git clone https://github.com/j-hc/revanced-magisk-module --depth 1
-$ cd revanced-magisk-module
+$ git clone https://github.com/Susheate/rvx-morphe-module-builder
+$ cd rvx-morphe-module-builder
 $ ./build.sh
 ```
 
