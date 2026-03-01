@@ -1,4 +1,6 @@
-# Config
+# Documentation
+
+## Config
 
 Adding another revanced app is as easy as this:
 ```toml
@@ -60,4 +62,19 @@ uptodown-dlurl = "https://spotify.en.uptodown.com/android"
 module-prop-name = "some-app-module"                       # Module prop name.
 dpi = "360-480dpi"                                         # Used to select apk variant from apkmirror. default: nodpi
 arch = "arm64-v8a"                                         # 'arm64-v8a', 'arm-v7a', 'all', 'both'. 'both' downloads both arm64-v8a and arm-v7a. default: all
+```
+
+---
+
+### On Linux
+```console
+$ git clone https://github.com/j-hc/revanced-magisk-module --depth 1
+$ cd revanced-magisk-module
+$ ./build.sh
+```
+
+## Building Locally
+### On Termux
+```console
+bash <(curl -sSf https://raw.githubusercontent.com/j-hc/revanced-magisk-module/main/build-termux.sh)
 ```
