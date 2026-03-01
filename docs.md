@@ -36,7 +36,7 @@ cli-version = "v5.0.0"       # 'latest', 'dev', or a version number. default: "l
 app-name = "YouTube" # The modules' names display the app-name and rv-brand values, the module's name would be YouTube ReVanced Extended. If this variable isn't bound, the builder will fallback to the table name (Some-App).
 release-name = "SomeApp" # If set, release name becomes SomeApp instead of Some-App. default is same as table name, which is 'Some-App' here.
 enabled = true       # Whether to build the app. default: true
-build-mode = "apk"   # 'both', 'apk' or 'module'. default: apk
+build-mode = ""   # Build mode is not used by this builder, setting a value here won't affect the builds.
 
 # 'auto' option gets the latest possible version supported by all the included patches
 # 'latest' gets the latest stable without checking patches support. 'beta' gets the latest beta/alpha
