@@ -3,7 +3,8 @@
 ## Config
 
 Adding another revanced app is as easy as this:
-```toml
+
+``` toml
 [Some-App]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inc/app"
 # or uptodown-dlurl = "https://app.en.uptodown.com/android"
@@ -17,7 +18,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/inc/app"
 There exists an example below with all defaults shown and all the keys explicitly set.  
 **All keys are optional** (except download urls) and are assigned to their default values if not set explicitly.  
 
-```toml
+``` toml
 parallel-jobs = 1                    # Amount of cores to use for parallel patching, if not set $(nproc) is used
 compression-level = 9                # Module zip compression level
 remove-rv-integrations-checks = true # Remove checks from the revanced integrations
