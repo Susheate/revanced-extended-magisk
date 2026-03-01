@@ -24,9 +24,9 @@
 * It currently offers :
   * Clearer releases and modules' names.
   * Code cleaning and changes.
-  * The builder only builds modules, allowing faster building times.
   * Different patches/patched apps.
   * A [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/docs.md).
+* The builder only builds modules, allowing faster building times.
 
 
 ## Credits
