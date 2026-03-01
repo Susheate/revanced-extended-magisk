@@ -12,7 +12,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/inc/app"
 > [!WARNING]
 > When a patch name itself contains a single quote, double it inside the string (e.g. 'Hide ''Get Music Premium''').
 
-## More about other options:
+### More about other options:
 
 There exists an example below with all defaults shown and all the keys explicitly set.  
 **All keys are optional** (except download urls) and are assigned to their default values if not set explicitly.  
@@ -69,13 +69,15 @@ arch = "arm64-v8a"                                         # 'arm64-v8a', 'arm-v
 ## Building Locally
 
 ### On Linux
-```console
+
+```
 $ git clone https://github.com/Susheate/rvx-morphe-module-builder
 $ cd rvx-morphe-module-builder
 $ ./build.sh
 ```
 
 ### On Termux
-```console
-bash <(curl -sSf https://raw.githubusercontent.com/j-hc/revanced-magisk-module/main/build-termux.sh)
+
+```
+bash <(curl -sSf https://raw.githubusercontent.com/Susheate/rvx-morphe-module-builder/main/build-termux.sh)
 ```
