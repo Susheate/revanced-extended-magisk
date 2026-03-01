@@ -564,7 +564,7 @@ build_rv() {
 		return 0
 	fi
 
-
+	pr "\nBeginning the build of ${table}"
 	pr "Choosing version '${version}' for ${table}"
 	local version_f=${version// /}
 	version_f=${version_f#v}
@@ -572,15 +572,15 @@ build_rv() {
 	if [ ! -f "$stock_apk" ]; then
 		for dl_p in archive apkmirror uptodown; do
 			if [ -z "${args[${dl_p}_dlurl]}" ]; then continue; fi
-			pr "Downloading '${table}' from '${dl_p}'"
+			pr "Downloading '${app_name}' from '${dl_p}'"
 			if ! isoneof $dl_p "${tried_dl[@]}"; then
 				if ! get_${dl_p}_resp "${args[${dl_p}_dlurl]}"; then
-					epr "ERROR: Could not get '${table}' from '${dl_p}'"
+					epr "ERROR: Could not get '${app_name}' from '${dl_p}'"
 					continue
 				fi
 			fi
 			if ! dl_${dl_p} "${args[${dl_p}_dlurl]}" "$version" "$stock_apk" "$arch" "${args[dpi]}" "$get_latest_ver"; then
-				epr "ERROR: Could not download '${table}' from '${dl_p}' with version '${version}', arch '${arch}', dpi '${args[dpi]}'"
+				epr "ERROR: Could not download '${app_name}' from '${dl_p}' with version '${version}', arch '${arch}', dpi '${args[dpi]}'"
 				continue
 			fi
 			break
