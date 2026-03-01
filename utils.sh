@@ -290,6 +290,7 @@ merge_splits() {
 		epr "Apkeditor ERROR: $OP"
 		return 1
 	fi
+	
 	# this is required because of apksig
 	mkdir "${bundle}-zip"
 	unzip -qo "${bundle}.mzip" -d "${bundle}-zip"
@@ -297,14 +298,11 @@ merge_splits() {
 		cd "${bundle}-zip" || abort
 		zip -0rq "${CWD}/${bundle}.zip" .
 	)
-	# if building module, sign the merged apk properly
-	if isoneof "module" "${build_mode_arr[@]}"; then
-		patch_apk "${bundle}.zip" "${output}" "--exclusive" "${args[cli]}" "${args[ptjar]}"
-		local ret=$?
-	else
-		cp "${bundle}.zip" "${output}"
-		local ret=$?
-	fi
+	
+	# Sign the merged apk properly
+	patch_apk "${bundle}.zip" "${output}" "--exclusive" "${args[cli]}" "${args[ptjar]}"
+	local ret=$?
+
 	rm -r "${bundle}-zip" "${bundle}.zip" "${bundle}.mzip" || :
 	return $ret
 }
@@ -508,7 +506,7 @@ check_sig() {
 build_rv() {
 	eval "declare -A args=${1#*=}"
 	local version="" pkg_name=""
-	local mode_arg=${args[build_mode]} version_mode=${args[version]}
+	local version_mode=${args[version]}
 	local app_name=${args[app_name]}
 	local rv_brand=${args[rv_brand]}
 	local release_name=${args[release_name]}
@@ -566,30 +564,23 @@ build_rv() {
 		return 0
 	fi
 
-	if [ "$mode_arg" = module ]; then
-		build_mode_arr=(module)
-	elif [ "$mode_arg" = apk ]; then
-		build_mode_arr=(apk)
-	elif [ "$mode_arg" = both ]; then
-		build_mode_arr=(apk module)
-	fi
-
-	pr "Choosing version '${version}' for ${table}"
+	pr "\nBeginning the build of ${table}"
+	pr "Choosing version '${version}' for ${app_name}"
 	local version_f=${version// /}
 	version_f=${version_f#v}
 	local stock_apk="${TEMP_DIR}/${pkg_name}-${version_f}-${arch_f}.apk"
 	if [ ! -f "$stock_apk" ]; then
 		for dl_p in archive apkmirror uptodown; do
 			if [ -z "${args[${dl_p}_dlurl]}" ]; then continue; fi
-			pr "Downloading '${table}' from '${dl_p}'"
+			pr "Downloading '${app_name}' from '${dl_p}'"
 			if ! isoneof $dl_p "${tried_dl[@]}"; then
 				if ! get_${dl_p}_resp "${args[${dl_p}_dlurl]}"; then
-					epr "ERROR: Could not get '${table}' from '${dl_p}'"
+					epr "ERROR: Could not get '${app_name}' from '${dl_p}'"
 					continue
 				fi
 			fi
 			if ! dl_${dl_p} "${args[${dl_p}_dlurl]}" "$version" "$stock_apk" "$arch" "${args[dpi]}" "$get_latest_ver"; then
-				epr "ERROR: Could not download '${table}' from '${dl_p}' with version '${version}', arch '${arch}', dpi '${args[dpi]}'"
+				epr "ERROR: Could not download '${app_name}' from '${dl_p}' with version '${version}', arch '${arch}', dpi '${args[dpi]}'"
 				continue
 			fi
 			break
@@ -609,85 +600,71 @@ build_rv() {
 		p_patcher_args=("${p_patcher_args[@]//-[ei] ${microg_patch}/}")
 	fi
 
-	local patcher_args patched_apk build_mode
+	local patcher_args patched_apk
 	local rv_brand_f=${args[rv_brand],,}
 	rv_brand_f=${rv_brand_f// /-}
 	if [ "${args[patcher_args]}" ]; then p_patcher_args+=("${args[patcher_args]}"); fi
-	for build_mode in "${build_mode_arr[@]}"; do
-		patcher_args=("${p_patcher_args[@]}")
-		pr "Building '${table}' in '$build_mode' mode"
-		patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
-		if [ -n "$microg_patch" ]; then
-			if [ "$build_mode" = apk ]; then
-				patcher_args+=("-e \"${microg_patch}\"")
-			elif [ "$build_mode" = module ]; then
-				patcher_args+=("-d \"${microg_patch}\"")
-			fi
-		fi
 
-		local stock_apk_to_patch="${stock_apk}.stripped.apk"
-		cp -f "$stock_apk" "$stock_apk_to_patch"
-		if [ "$build_mode" = module ]; then
-			zip -d "$stock_apk_to_patch" "lib/*" >/dev/null 2>&1 || :
-		else
-			if [ "$arch" = "arm64-v8a" ]; then
-				zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "arm-v7a" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "x86" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
-			elif [ "$arch" = "x86_64" ]; then
-				zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
-			else
-				zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-			fi
-		fi
-		if [ "${NORB:-}" != true ] || [ ! -f "$patched_apk" ]; then
-			if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
-				epr "Building '${table}' failed!"
-				return 0
-			fi
-		fi
-		rm "$stock_apk_to_patch"
-		if [ "$build_mode" = apk ]; then
-			local apk_output="${BUILD_DIR}/${app_name}-${rv_brand}-v${version_f}-${arch_f}.apk"
-			mv -f "$patched_apk" "$apk_output"
-			pr "Built ${table} (non-root): '${apk_output}'"
-			continue
-		fi
-		local base_template
-		base_template=$(mktemp -d -p "$TEMP_DIR")
-		cp -a $MODULE_TEMPLATE_DIR/. "$base_template"
-		local upj="${table,,}-update.json"
+	patcher_args=("${p_patcher_args[@]}")
+	pr "Building '${table}'"
+	patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
+	if [ -n "$microg_patch" ]; then
+		patcher_args+=("-d \"${microg_patch}\"")
+	fi
 
-		module_config "$base_template" "$pkg_name" "$version" "$arch"
-
-		if [[ ! $app_name = $table_name ]]; then
-			module_name="${app_name} ${rv_brand}"
-			module_desc="${app_name} ${rv_brand} module"
-		else
-			module_name="${app_name}"
-			module_desc="${app_name} module"
+	local stock_apk_to_patch="${stock_apk}.stripped.apk"
+	cp -f "$stock_apk" "$stock_apk_to_patch"
+	zip -d "$stock_apk_to_patch" "lib/*" >/dev/null 2>&1 || :
+	if [ "$arch" = "arm64-v8a" ]; then
+		zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "arm-v7a" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "x86" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "x86_64" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
+	else
+		zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+	fi
+	if [ "${NORB:-}" != true ] || [ ! -f "$patched_apk" ]; then
+		if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
+			epr "Building '${table}' failed!"
+			return 0
 		fi
+	fi
+	rm "$stock_apk_to_patch"
+	local base_template
+	base_template=$(mktemp -d -p "$TEMP_DIR")
+	cp -a $MODULE_TEMPLATE_DIR/. "$base_template"
+	local upj="${table,,}-update.json"
 
-		local patches_ver="${patches_jar##*-}"
-		module_prop \
-			"${args[module_prop_name]}" \
-			"${module_name}" \
-			"${version} (patches ${patches_ver})" \
-			"${module_desc} module" \
-			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
-			"$base_template"
+	module_config "$base_template" "$pkg_name" "$version" "$arch"
 
-		local module_output="${release_name}-module-v${version_f}-${arch_f}.zip"
-		pr "Packing module ${table}"
-		cp -f "$patched_apk" "${base_template}/base.apk"
-		if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
-		pushd >/dev/null "$base_template" || abort "Module template dir not found"
-		zip -"$COMPRESSION_LEVEL" -FSqr "${CWD}/${BUILD_DIR}/${module_output}" .
-		popd >/dev/null || :
-		pr "Built ${table} (root): '${BUILD_DIR}/${module_output}'"
-	done
+	if [[ ! $app_name = $table_name ]]; then
+		module_name="${app_name} ${rv_brand}"
+		module_desc="${app_name} ${rv_brand} module"
+	else
+		module_name="${app_name}"
+		module_desc="${app_name} module"
+	fi
+
+	local patches_ver="${patches_jar##*-}"
+	module_prop \
+		"${args[module_prop_name]}" \
+		"${module_name}" \
+		"${version} (patches ${patches_ver})" \
+		"${module_desc} module" \
+		"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
+		"$base_template"
+
+	local module_output="${release_name}-module-v${version_f}-${arch_f}.zip"
+	pr "Packing module ${table}"
+	cp -f "$patched_apk" "${base_template}/base.apk"
+	if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
+	pushd >/dev/null "$base_template" || abort "Module template dir not found"
+	zip -"$COMPRESSION_LEVEL" -FSqr "${CWD}/${BUILD_DIR}/${module_output}" .
+	popd >/dev/null || :
+	pr "Built ${table} (root): '${BUILD_DIR}/${module_output}'"
 }
 
 list_args() { tr -d '\t\r' <<<"$1" | tr -s ' ' | sed 's/" "/"\n"/g' | sed 's/\([^"]\)"\([^"]\)/\1'\''\2/g' | grep -v '^$' || :; }

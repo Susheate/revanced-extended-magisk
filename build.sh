@@ -11,9 +11,9 @@ fi
 
 source utils.sh
 
-jq --version >/dev/null || abort "\`jq\` is not installed. install it with 'apt install jq' or equivalent"
-java --version >/dev/null || abort "\`openjdk 17\` is not installed. install it with 'apt install openjdk-17-jre' or equivalent"
-zip --version >/dev/null || abort "\`zip\` is not installed. install it with 'apt install zip' or equivalent"
+jq --version >/dev/null || abort "\`jq\` is not installed."
+java --version >/dev/null || abort "\`openjdk 17\` is not installed."
+zip --version >/dev/null || abort "\`zip\` is not installed."
 
 set_prebuilts
 
@@ -98,10 +98,10 @@ for table_name in $(toml_get_table_names); do
 	app_args[patcher_args]=$(toml_get "$t" patcher-args) || app_args[patcher_args]=""
 	app_args[table]=$table_name
 	app_args[build_mode]=$(toml_get "$t" build-mode) && {
-		if ! isoneof "${app_args[build_mode]}" both apk module; then
-			abort "ERROR: build-mode '${app_args[build_mode]}' is not a valid option for '${table_name}': only 'both', 'apk' or 'module' is allowed"
+		if isoneof "${app_args[build_mode]}" both apk module; then
+			wpr "This builder only builds modules, therefore build-mode is not used"
 		fi
-	} || app_args[build_mode]=apk
+	} || app_args[build_mode]=""
 
 	for dl_from in "direct" "uptodown" "apkmirror" "archive"; do
 		if app_args[${dl_from}_dlurl]=$(toml_get "$t" ${dl_from}-dlurl); then
