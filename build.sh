@@ -101,7 +101,7 @@ for table_name in $(toml_get_table_names); do
 		if isoneof "${app_args[build_mode]}" both apk module; then
 			wpr "This builder only builds modules, therefore build-mode is not used"
 		fi
-	} || app_args[build_mode]=apk
+	} || app_args[build_mode]=""
 
 	for dl_from in "direct" "uptodown" "apkmirror" "archive"; do
 		if app_args[${dl_from}_dlurl]=$(toml_get "$t" ${dl_from}-dlurl); then
