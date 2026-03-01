@@ -66,6 +66,8 @@ arch = "arm64-v8a"                                         # 'arm64-v8a', 'arm-v
 
 ---
 
+## Building Locally
+
 ### On Linux
 ```console
 $ git clone https://github.com/j-hc/revanced-magisk-module --depth 1
@@ -73,7 +75,6 @@ $ cd revanced-magisk-module
 $ ./build.sh
 ```
 
-## Building Locally
 ### On Termux
 ```console
 bash <(curl -sSf https://raw.githubusercontent.com/j-hc/revanced-magisk-module/main/build-termux.sh)
