@@ -184,7 +184,8 @@ if [ "$KSU" ]; then
 	fi
 	if [ "$UID" ]; then
 		if ! OP=$("${MODPATH:?}/bin/$ARCH/ksu_profile" "$UID" "$PKG_NAME" 2>&1); then
-			ui_print "ERROR ksu_profile: $OP"
+			ui_print "  $OP"
+			ui_print "  Disable 'Unmount modules' option for $PKG_NAME"
 		fi
 	else
 		ui_print "ERROR: UID could not be found for $PKG_NAME"
@@ -196,4 +197,3 @@ rm -rf "${MODPATH:?}/bin" "$MODPATH/$PKG_NAME.apk"
 
 ui_print "* Done"
 ui_print "  by Susheatee, j-hc (github.com/j-hc)"
-ui_print " "
