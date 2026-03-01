@@ -565,7 +565,7 @@ build_rv() {
 	fi
 
 	pr "\nBeginning the build of ${table}"
-	pr "Choosing version '${version}' for ${table}"
+	pr "Choosing version '${version}' for ${app_name}"
 	local version_f=${version// /}
 	version_f=${version_f#v}
 	local stock_apk="${TEMP_DIR}/${pkg_name}-${version_f}-${arch_f}.apk"
