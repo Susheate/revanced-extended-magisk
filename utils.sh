@@ -615,18 +615,16 @@ build_rv() {
 	local stock_apk_to_patch="${stock_apk}.stripped.apk"
 	cp -f "$stock_apk" "$stock_apk_to_patch"
 	zip -d "$stock_apk_to_patch" "lib/*" >/dev/null 2>&1 || :
+	if [ "$arch" = "arm64-v8a" ]; then
+		zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "arm-v7a" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "x86" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
+	elif [ "$arch" = "x86_64" ]; then
+		zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
 	else
-		if [ "$arch" = "arm64-v8a" ]; then
-			zip -d "$stock_apk_to_patch" "lib/armeabi-v7a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-		elif [ "$arch" = "arm-v7a" ]; then
-			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-		elif [ "$arch" = "x86" ]; then
-			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/x86_64/*" "lib/armeabi-v7a/*" >/dev/null 2>&1 || :
-		elif [ "$arch" = "x86_64" ]; then
-			zip -d "$stock_apk_to_patch" "lib/arm64-v8a/*" "lib/armeabi-v7a/*" "lib/x86/*" >/dev/null 2>&1 || :
-		else
-			zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
-		fi
+		zip -d "$stock_apk_to_patch" "lib/x86_64/*" "lib/x86/*" >/dev/null 2>&1 || :
 	fi
 	if [ "${NORB:-}" != true ] || [ ! -f "$patched_apk" ]; then
 		if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
