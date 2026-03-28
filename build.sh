@@ -6,7 +6,7 @@ source utils.sh
 trap "abort" INT
 
 if [ "${1-}" = "clean" ]; then
-	rm -rf temp build logs build.md
+	rm -r "$TEMP_DIR" "$BUILD_DIR" build.md
 	exit 0
 fi
 
