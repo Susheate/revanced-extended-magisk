@@ -2,7 +2,8 @@
 
 set -euo pipefail
 shopt -s nullglob
-trap "rm -rf temp/*tmp.* temp/*/*tmp.* temp/*-temporary-files; kill 0; exit 130" INT
+source utils.sh
+trap "abort" INT
 
 if [ "${1-}" = "clean" ]; then
 	rm -rf temp build logs build.md
