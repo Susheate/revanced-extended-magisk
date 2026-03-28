@@ -48,7 +48,8 @@ wpr() {
 }
 abort() {
 	epr "ABORT: ${1-}"
-	exit 1
+	rm -rf ./${TEMP_DIR}/*tmp.* ./${TEMP_DIR}/*/*tmp.* ./${TEMP_DIR}/*-temporary-files
+	kill -n 9 0
 }
 java() { env -i java "$@"; }
 
@@ -93,7 +94,7 @@ get_prebuilts() {
 			local resp asset name
 			resp=$(gh_req "$rv_rel" -) || return 1
 			tag_name=$(jq -r '.tag_name' <<<"$resp")
-			matches=$(jq -e '.assets | map(select(.name | endswith("asc") | not))' <<<"$resp")
+			matches=$(jq -e '.assets | map(select(.name | (endswith("asc") or endswith("json")) | not))' <<<"$resp")
 			if [ "$(jq 'length' <<<"$matches")" -gt 1 ]; then
 				local matches_new
 				matches_new=$(jq -e -r 'map(select(.name | contains("-dev") | not))' <<<"$matches")
@@ -184,8 +185,8 @@ config_update() {
 			else
 				last_patches=$(gh_req "$rv_rel/tags/${ver}" -)
 			fi
-			if ! last_patches=$(jq -e -r '.assets[] | select(.name | endswith("asc") | not) | .name' <<<"$last_patches"); then
-				abort oops
+			if ! last_patches=$(jq -e -r '.assets[] | select(.name | (endswith("asc") or endswith("json")) | not) | .name' <<<"$last_patches"); then
+				abort "config_update error: '$last_patches'"
 			fi
 			if [ "$last_patches" ]; then
 				if ! OP=$(grep "^Patches: ${PATCHES_SRC%%/*}/" build.md | grep -m1 "$last_patches"); then
@@ -581,7 +582,8 @@ build_rv() {
 	if [ "$version_mode" = auto ]; then
 		if ! version=$(get_patch_last_supported_ver "$list_patches" "$pkg_name" \
 			"${args[included_patches]}" "${args[excluded_patches]}" "${args[exclusive_patches]}"); then
-			exit 1
+			epr "get_patch_last_supported_ver failed '$list_patches'"
+			return
 		elif [ -z "$version" ]; then get_latest_ver=true; fi
 	elif isoneof "$version_mode" latest beta; then
 		get_latest_ver=true
@@ -644,7 +646,7 @@ build_rv() {
 	patcher_args=("${p_patcher_args[@]}")
 	pr "Building '${table}'"
 	patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
-	if [ -n "$microg_patch" ] || [ -f "${stock_apk}.apkm" ]; then
+	if [ -n "$microg_patch" ]; then
 		patcher_args+=("-d \"${microg_patch}\"")
 	fi
 
