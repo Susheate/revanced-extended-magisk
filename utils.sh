@@ -617,7 +617,7 @@ build_rv() {
 	patcher_args=("${p_patcher_args[@]}")
 	pr "Building '${table}'"
 	patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
-	if [ -n "$microg_patch" ]; then
+	if [ -n "$microg_patch" ] || [ -f "${stock_apk}.apkm" ]; then
 		patcher_args+=("-d \"${microg_patch}\"")
 	fi
 
