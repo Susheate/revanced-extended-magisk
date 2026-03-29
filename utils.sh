@@ -322,19 +322,12 @@ merge_splits() {
 		return 1
 	fi
 	
-	# this is required because of apksig
-	mkdir "${bundle}-zip"
-	unzip -qo "${bundle}.mzip" -d "${bundle}-zip"
-	(
-		cd "${bundle}-zip" || abort
-		zip -0rq "${CWD}/${bundle}.zip" .
-	)
 	
 	# Sign the merged apk properly
-	patch_apk "${bundle}.zip" "${output}" "--exclusive" "${args[cli]}" "${args[ptjar]}"
+	patch_apk "${bundle}.mzip" "${output}" "--exclusive" "${args[cli]}" "${args[ptjar]}"
 	local ret=$?
 
-	rm -r "${bundle}-zip" "${bundle}.zip" "${bundle}.mzip" || :
+	rm -f "${bundle}.mzip"
 	return $ret
 }
 
