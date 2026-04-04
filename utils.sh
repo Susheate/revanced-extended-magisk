@@ -252,7 +252,6 @@ semver_validate() {
 	local ac="${a//[.0-9]/}"
 	[ ${#ac} = 0 ]
 }
-
 get_patch_last_supported_ver() {
 	local list_patches=$1 pkg_name=$2 inc_sel=$3 _exc_sel=$4 _exclusive=$5 # TODO: resolve using all of these
 	local op
@@ -513,7 +512,7 @@ patch_apk() {
 	local cli_name
 	cli_name=$(basename "$cli_jar")
 	if [ "${cli_name::8}" = revanced ]; then cmd+=" -b"; fi
-	
+
 	if [ "$OS" = Android ]; then cmd+=" --custom-aapt2-binary='${AAPT2}'"; fi
 	pr "$cmd"
 	if eval "$cmd"; then [ -f "$patched_apk" ]; else
@@ -567,12 +566,9 @@ build_rv() {
 		epr "empty pkg name, not building ${table}."
 		return 0
 	fi
-
 	pr "Package name of '${table}' is '$pkg_name'"
-	
 	local list_patches
 	list_patches=$(patches_list "$cli_jar" "$patches_jar" "$pkg_name") || return 1
-
 	local get_latest_ver=false
 	if [ "$version_mode" = auto ]; then
 		if ! version=$(get_patch_last_supported_ver "$list_patches" "$pkg_name" \
@@ -622,7 +618,6 @@ build_rv() {
 			epr "Stock apk not found ($stock_apk)"
 			return 0
 		fi
-		
 	fi
 	if [ ! -f "${stock_apk}.apkm" ] && ! OP=$(check_sig "$stock_apk" "$pkg_name" 2>&1) && ! grep -qFx "ERROR: Missing META-INF/MANIFEST.MF" <<<"$OP"; then
 		epr "Not building $table, apk signature mismatch '$stock_apk': $OP"
@@ -643,8 +638,13 @@ build_rv() {
 	if [ "${args[patcher_args]}" ]; then p_patcher_args+=("${args[patcher_args]}"); fi
 
 	patcher_args=("${p_patcher_args[@]}")
-	pr "Building '${table}'"
-	patched_apk="${TEMP_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
+	pr "Building '${table}' in '$build_mode' mode"
+	if [ -n "$microg_patch" ]; then
+		patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}-${build_mode}.apk"
+	else
+		patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}.apk"
+	fi
+
 	if [ -n "$microg_patch" ]; then
 		patcher_args+=("-d \"${microg_patch}\"")
 	fi
@@ -718,7 +718,6 @@ module_config() {
 PKG_VER=$3
 MODULE_ARCH=$ma" >"$1/config"
 }
-
 module_prop() {
 	echo "id=${1}
 name=${2}
