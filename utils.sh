@@ -536,6 +536,8 @@ build_rv() {
 	local version="" pkg_name=""
 	local version_mode=${args[version]}
 	local app_name=${args[app_name]}
+	local app_name_l=${app_name,,}
+	app_name_l=${app_name_l// /-}
 	local rv_brand=${args[rv_brand]}
 	local release_name=${args[release_name]}
 	local release_name_l=${release_name,,}
