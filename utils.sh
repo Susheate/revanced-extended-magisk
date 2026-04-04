@@ -638,7 +638,6 @@ build_rv() {
 	if [ "${args[patcher_args]}" ]; then p_patcher_args+=("${args[patcher_args]}"); fi
 
 	patcher_args=("${p_patcher_args[@]}")
-	pr "Building '${table}' in '$build_mode' mode"
 	if [ -n "$microg_patch" ]; then
 		patched_apk="${TEMP_DIR}/${app_name_l}-${rv_brand_f}-${version_f}-${arch_f}-${build_mode}.apk"
 	else
