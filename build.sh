@@ -10,8 +10,6 @@ if [ "${1-}" = "clean" ]; then
 	exit 0
 fi
 
-source utils.sh
-
 jq --version >/dev/null || abort "\`jq\` is not installed."
 java --version >/dev/null || abort "\`openjdk 17\` is not installed."
 zip --version >/dev/null || abort "\`zip\` is not installed."
