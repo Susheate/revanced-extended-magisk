@@ -60,7 +60,7 @@ module-prop-name = "ytm-morphe"
 arch = "both"
 
 [Reddit-Morphe]
-#release-name = "Reddit-Morphe"
+release-name = "Reddit-Morphe"
 app-name="Reddit"
 rv-brand = "Morphe"
 enabled = true
@@ -71,4 +71,4 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.reddit.frontpage"
 module-prop-name = "reddit-morphe"
-arch = "all"
+#arch = "all"
