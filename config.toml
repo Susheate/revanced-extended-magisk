@@ -1,74 +1,64 @@
-enable-magisk-update = true # set this to false if you do not want to receive updates for the module in magisk app
+enable-module-update = true # set this to false if you do not want to receive updates for the module
 parallel-jobs = 1
 
+# add 'enabled = false' for not patching a specific app or remove it from the config
+# see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
 
-#Stable
-[YouTube-Extended-anddea]
-release-name = "YT-RVX-anddea"
-app-name="YouTube"
-rv-brand = "ReVanced Extended anddea"
-enabled = true
-version = "auto"
-patches-source = "anddea/revanced-patches"
-cli-source = "j-hc/revanced-cli"
+# you can use rvmm-config-gen to generate a config
+
+[YouTube]
+build-mode = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
-module-prop-name = "yt-rvx-anddea"
-arch = "all"
-
-[YouTube-Music-Extended-anddea]
-release-name = "YT-Music-RVX-anddea"
-app-name="YouTube Music"
-rv-brand = "ReVanced Extended anddea"
-enabled = true
-version = "auto"
-patches-source = "anddea/revanced-patches"
-cli-source = "j-hc/revanced-cli"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
-module-prop-name = "ytm-rvx-anddea"
-arch = "both"
 
 [YouTube-Morphe]
-release-name = "YT-Morphe"
-app-name="YouTube"
-rv-brand = "Morphe"
-enabled = true
-version = "auto"
+app-name = "YouTube"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
+rv-brand = "Morphe"
+build-mode = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
-module-prop-name = "yt-morphe"
-arch = "all"
 
-[YouTube-Music-Morphe]
-release-name = "YT-Music-Morphe"
-app-name="YouTube Music"
-rv-brand = "Morphe"
-enabled = true
-version = "auto"
-patches-source = "MorpheApp/morphe-patches"
-cli-source = "MorpheApp/morphe-cli"
+[Music]
+build-mode = "both"
+arch = "both"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
-module-prop-name = "ytm-morphe"
+
+[Music-Morphe]
+app-name = "Music"
+patches-source = "MorpheApp/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+rv-brand = "Morphe"
+build-mode = "both"
 arch = "both"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 
 [Reddit-Morphe]
-release-name = "Reddit-Morphe"
-app-name="Reddit"
+app-name = "Reddit"
 rv-brand = "Morphe"
-enabled = true
-version = "auto"
-patches-source = "wchill/patcheddit"
+build-mode = "both"
+patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit/"
-uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.reddit.frontpage"
-module-prop-name = "reddit-morphe"
-arch = "all"
+uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
+dpi = "120-640dpi"
+
+[GooglePhotos]
+build-mode = "both"
+arch = "both"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
+uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
+archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.photos"
+
+[Twitch]
+enabled = false
+apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
+uptodown-dlurl = "https://twitch.en.uptodown.com/android"
