@@ -8,24 +8,25 @@
 
 ### Modules features
 * **Receive updates from your root manager app :** no need to repatch your apps, updates are seamless.
-* **Keep mounts across reboots :** modules will keep being mounted after reboots
-* Should not trigger root detections
-* Support **Apatch**, **Magisk** and **KernelSU**
+* **Keep mounts across reboots :** modules will keep being mounted after reboots.
+* Should not trigger root detections.
+* Support **Apatch**, **Magisk** and **KernelSU**.
 
 ### Builder's features
-* Builds Magisk modules with RVX patches for YouTube and YouTube-Music
-* Uses the latest patches from [Morphe](https://github.com/MorpheApp/morphe-patches) and [anddea's RVX](https://github.com/anddea/revanced-patches)
-* Modules are built without human intervention
+* Builds Magisk modules with RVX patches for YouTube and YouTube-Music.
+* Uses the latest patches from [Morphe](https://github.com/MorpheApp/morphe-patches) and [anddea's RVX](https://github.com/anddea/revanced-patches).
+* Modules are built without human intervention.
 
 
  ## Notes
 * Use [zygisk-detach](https://github.com/j-hc/zygisk-detach) to prevent Play Store from updating the patched apps.
-* This is a fork of [j-hc](https://github.com/j-hc)'s [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module)
+* This is a fork of [j-hc](https://github.com/j-hc)'s [revanced-magisk-module repo](https://github.com/j-hc/revanced-magisk-module).
 * It currently offers :
- * Clearer releases' and modules' names
- * Code cleaning and changes
- * Different patches/patched apps
- * [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/docs.md)
+  * Clearer releases and modules' names.
+  * Code cleaning and changes.
+  * Module building only, allowing faster building times.
+  * Different patches/patched apps.
+  * A [Documentation](https://github.com/Susheate/rvx-morphe-module-builder/blob/main/docs.md).
 
 
 ## Credits
