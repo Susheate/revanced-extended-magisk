@@ -604,7 +604,7 @@ build_rv() {
 		return 0
 	fi
 
-	pr "\nBeginning the build of ${table}"
+	pr "Beginning the build of ${table}"
 	pr "Choosing version '${version}' for ${app_name}"
 	local version_f=${version// /}
 	version_f=${version_f#v}
