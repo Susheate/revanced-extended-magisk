@@ -60,7 +60,7 @@ module-prop-name = "ytm-morphe"
 arch = "both"
 
 [Reddit-Morphe]
-release-name = "Reddit-Morphe"
+#release-name = "Reddit-Morphe"
 app-name="Reddit"
 rv-brand = "Morphe"
 enabled = true
