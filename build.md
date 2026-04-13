@@ -1,5 +1,4 @@
 Reddit-Morphe: 2026.04.0  
-TikTok-DeRevanced: 43.8.3  
 YouTube-Extended-anddea: 20.05.46  
 YouTube-Morphe: 20.45.36  
 YouTube-Music-Extended-anddea (arm64-v8a): 8.30.54  
