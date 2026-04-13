@@ -101,7 +101,7 @@ module-prop-name = "twitch-derevanced"
 arch = "both"
 
 [Google-Photos-DeRevanced]
-enabled = true
+enabled = false
 release-name = "Google-Photos-DeRV"
 app-name= "Google-Photos"
 rv-brand = "De-ReVanced"
