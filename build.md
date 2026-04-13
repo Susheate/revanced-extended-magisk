@@ -1,4 +1,3 @@
-Reddit-Morphe: 2026.04.0  
 YouTube-Morphe: 20.45.36  
 YouTube-Music-Morphe (arm64-v8a): 8.44.54  
 YouTube-Music-Morphe (arm-v7a): 8.44.54  
