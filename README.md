@@ -4,7 +4,7 @@
 
 ## Features
 
-**Morphe/RVX patching, made easy**
+**Application patching, made easy**
 
 ### Modules features
 * **Receive updates from your root manager app :** no need to repatch your apps, updates are seamless.
@@ -14,7 +14,7 @@
 
 ### Builder's features
 * Builds Magisk modules with RVX patches for YouTube and YouTube-Music.
-* Uses the latest patches from [Morphe](https://github.com/MorpheApp/morphe-patches) and [anddea's RVX](https://github.com/anddea/revanced-patches).
+* Uses the latest patches from [Morphe](https://github.com/MorpheApp/morphe-patches), [anddea's RVX](https://github.com/anddea/revanced-patches) and [De-ReVanced](https://github.com/RookieEnough/De-Revanced).
 * Modules are built without human intervention.
 
 
@@ -35,5 +35,7 @@
 [The MorpheApp team](https://github.com/Morphe) for their [Morphe patches](https://github.com/MorpheApp/morphe-patches)
 
 [anddea](https://github.com/anddea) for their [Revanced Extended patches](https://github.com/anddea/revanced-patches)
+
+[De-ReVanced](https://github.com/RookieEnough/De-Revanced)
 
 [The ReVanced team](https://github.com/revanced)
