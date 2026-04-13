@@ -85,6 +85,7 @@ cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://tiktok.en.uptodown.com/android"
 module-prop-name = "tiktok-derevanced"
 arch = "both"
+included-patches = "'Settings'"  
 
 [Twitch-DeRevanced]
 enabled = true
