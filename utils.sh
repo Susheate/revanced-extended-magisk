@@ -721,7 +721,7 @@ build_rv() {
 		"${args[module_prop_name]}" \
 		"${module_name}" \
 		"${version} (patches ${patches_ver})" \
-		"${module_desc} module" \
+		"${module_desc}" \
 		"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 		"$base_template"
 
