@@ -725,7 +725,7 @@ build_rv() {
 		"https://raw.githubusercontent.com/${GITHUB_REPOSITORY-}/update/${upj}" \
 		"$base_template"
 
-	local module_output="${release_name}-module-v${version_f}-${arch_f}.zip"
+	local module_output="${release_name}-v${version_f}-${arch_f}.zip"
 	pr "Packing module ${table}"
 	cp -f "$patched_apk" "${base_template}/base.apk"
 	if [ "${args[include_stock]}" = true ]; then cp -f "$stock_apk" "${base_template}/${pkg_name}.apk"; fi
