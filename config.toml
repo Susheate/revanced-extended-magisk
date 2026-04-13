@@ -84,7 +84,7 @@ cli-source = "MorpheApp/morphe-cli"
 #apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok/"
 uptodown-dlurl = "https://tiktok.en.uptodown.com/android"
 module-prop-name = "tiktok-derevanced"
-arch = "all"
+arch = "both"
 
 [Twitch-DeRevanced]
 enabled = true
@@ -94,7 +94,20 @@ rv-brand = "De-ReVanced"
 version = "auto"
 patches-source = "RookieEnough/De-Revanced"
 cli-source = "MorpheApp/morphe-cli"
-#apkmirror-dlurl = ""
+apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
 uptodown-dlurl = "https://twitch.en.uptodown.com/android"
 module-prop-name = "twitch-derevanced"
+arch = "both"
+
+[Google-Photos-DeRevanced]
+enabled = true
+release-name = "Google-Photos-DeRV"
+app-name= "Google-Photos"
+rv-brand = "De-ReVanced"
+version = "auto"
+patches-source = "RookieEnough/De-Revanced"
+cli-source = "MorpheApp/morphe-cli"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
+uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
+module-prop-name = "gphotos-derevanced"
 arch = "all"
