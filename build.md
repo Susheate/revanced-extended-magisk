@@ -1,3 +1,4 @@
+Reddit-Morphe: 2026.04.0  
 TikTok-DeRevanced: 43.8.3  
 YouTube-Extended-anddea: 20.05.46  
 YouTube-Morphe: 20.45.36  
