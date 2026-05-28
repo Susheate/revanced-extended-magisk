@@ -56,7 +56,7 @@ excluded-patches = """\
   """
 
 included-patches = "'Some Patch'"                          # Whitespace seperated list of non-default patches to include. default: ""
-include-stock = true                                       # Includes stock apk in the module. default: true
+include-stock = "merged"                                   # 'merged', 'split' or 'disable'. default: merged
 exclusive-patches = false                                  # Exclude all patches by default. default: false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inc/app"
 uptodown-dlurl = "https://spotify.en.uptodown.com/android"
