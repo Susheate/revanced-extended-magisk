@@ -718,12 +718,12 @@ build_rv() {
 	fi
 
 	local apk_output="${BUILD_DIR}/${app_name}-${rv_brand}-${version_f}-${arch_f}.apk"
-	if [ "${NORB:-}" != true ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
-		if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
-			epr "Building '${table}' failed!"
-			return 0
-		fi
-	fi
+	#if [ "${NORB:-}" != true ] || { [ ! -f "$patched_apk" ] && [ ! -f "$apk_output" ]; }; then
+	#	if ! patch_apk "$stock_apk_to_patch" "$patched_apk" "${patcher_args[*]}" "${args[cli]}" "${args[ptjar]}"; then
+	#		epr "Building '${table}' failed!"
+	#		return 0
+	#	fi
+	#fi
 	rm "$stock_apk_to_patch"
 	local base_template
 	base_template=$(mktemp -d -p "$TEMP_DIR")
