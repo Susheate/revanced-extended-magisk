@@ -1,6 +1,5 @@
 enable-magisk-update = true
 parallel-jobs = 1
-include-stock = "disable"
 
 
 #Stable
@@ -16,6 +15,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 module-prop-name = "yt-rvx-anddea"
 arch = "all"
+include-stock = "disable"
 
 [YouTube-Music-Extended-anddea]
 enabled = true
@@ -29,6 +29,7 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-rvx-anddea"
 arch = "both"
+include-stock = "disable"
 
 [YouTube-Morphe]
 enabled = true
@@ -42,6 +43,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 module-prop-name = "yt-morphe"
 arch = "all"
+include-stock = "disable"
 
 [YouTube-Music-Morphe]
 enabled = true
@@ -55,6 +57,7 @@ uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
 module-prop-name = "ytm-morphe"
 arch = "both"
+include-stock = "disable"
 
 [Reddit-Morphe]
 enabled = true
@@ -68,6 +71,7 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.reddit.frontpage
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 module-prop-name = "reddit-morphe"
 arch = "all"
+include-stock = "disable"
 
 [TikTok-DeRevanced]
 enabled = true
@@ -80,7 +84,8 @@ cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://tiktok.en.uptodown.com/android"
 module-prop-name = "tiktok-derevanced"
 arch = "all"
-included-patches = "'Settings'"  
+included-patches = "'Settings'"
+include-stock = "disable"
 
 [Twitch-DeRevanced]
 enabled = true
@@ -93,6 +98,7 @@ cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://twitch.en.uptodown.com/android"
 module-prop-name = "twitch-derevanced"
 arch = "all"
+include-stock = "disable"
 
 [Google-Photos-DeRevanced]
 enabled = true
@@ -106,3 +112,4 @@ uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.photos"
 module-prop-name = "gphotos-derevanced"
 arch = "both"
+include-stock = "disable"
