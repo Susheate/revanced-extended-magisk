@@ -1,5 +1,6 @@
 enable-magisk-update = true
 parallel-jobs = 1
+include-stock = "disable"
 
 
 #Stable
